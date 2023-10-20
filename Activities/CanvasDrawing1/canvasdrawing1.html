@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" contet="width=device-width, initial-scale=1.0" />
+    <title>Canvas Drawing</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin-top: 50px;
+      }
+      h1 {
+        text-align: center;
+      }
+      #canvas {
+        margin: auto; 
+        display: block;
+        border: 1px solid silver;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Canvas Drawing</h1>
+    <canvas id="canvas" width="1000px" height="500px"></canvas>
+
+    <script>
+      // Create variables
+      const canvas = window.document.querySelector('#canvas');
+      const ctx = canvas.getContext('2d');
+
+        // Sun
+      ctx.fillStyle = '#EF540D';
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 15;
+        ctx.arc(500, 10, 200, 0, Math.PI * 1);
+        ctx.fill(); 
+        ctx.stroke(); 
+
+        // House
+        ctx.fillStyle = '#F6B53B'; 
+        ctx.fillRect(425,350, 150,150);
+
+        // Roof
+        ctx.beginPath(); 
+        ctx.moveTo(500, 250); 
+        ctx.lineTo(400, 350); 
+        ctx.lineTo(600, 350);
+        ctx.closePath() 
+        ctx.fill(); 
+
+        // Door
+        ctx.fillStyle = 'black'; 
+        ctx.fillRect(490,450, 25,100);
+
+        
+
+
+    </script>
+  </body>
+</html>
