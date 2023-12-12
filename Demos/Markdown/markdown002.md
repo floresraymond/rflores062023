@@ -6,7 +6,7 @@
 
 <!-- Images -->
 
-![Chagoyan Logo](https://www.chsserver01.org/img/namelogo2.png 'Chagoyan Logo')
+![Chagoyan Logo](https://www.chsserver01.org/img/namelogo2.png ' Chagoyan Logo')
 
 ![Markdown Logo](Images/logo.png)
 

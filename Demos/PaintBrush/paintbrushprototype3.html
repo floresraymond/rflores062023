@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paintbrush Prototype</title>
     <style>
-        :root
-        {
-            --default-canvas-color: yellow;
-            --favorvitecolor: rgb(49, 238, 255);
-        }
-
         *
         {
-            box-sizing: border-box;
+            box-sizing: border-box; 
             margin: 0;
             padding: 0;
 
@@ -26,18 +20,43 @@
             width: 100%;
             height: 100%;
         }
+
+        #menu {
+            background-color: silver;
+            border: 2px solid #333;
+            height: 60px;
+            position: fixed;
+            width: 100%;
+            padding: 1rem;
+            bottom: 0;
+        }
     </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
+
+    <section id="menu">
+        <input type="color" id="colorpicker" value="#FF0000" />
+        <input type="range" id="rangepicker" min="2" max="100" value="15"/>
+    </section>
     <script>
+
+        // Creatye JavaScript variables
+        var canvasColor = '#ffffff';
+        var brushColor = 'red';
+        var painting = false;
+        var brushSize = 15;
+
     // Create and assign canvas variable 
     const canvas = window.document.querySelector('#canvas')
     const ctx = canvas.getContext('2d');
-        // Set the canvas color
-        //canvas.style.backgroundColor = 'lightblue';
+    // Colorpicker variable
+    const colorPicker = window.document.querySelector('#colorpicker');
+    const rangePicker = window.document.querySelector('#rangepicker');
 
-        canvas.style.backgroundColor = getComputedStyle(canvas).getPropertyValue('--default-canvas-color');
+        // Set the canvas color
+        canvas.style.backgroundColor = canvasColor;
+
 
         // Set default canvas size
         canvas.width = window.innerWidth;
@@ -49,6 +68,7 @@
             y:undefined
         };
 
+        // Add event luistener to color picker
 
         // Add an event listener to the canvas
         canvas.addEventListener('click', function(event)
@@ -62,6 +82,29 @@
             draw();
         });
 
+        colorPicker.addEventListener('input', function (e) {
+            brushColor = e.target.value;
+        });
+
+        rangePicker.addEventListener('input', function (e) {
+            brushSize = e.target.value;
+        });
+
+        // Add severa; event listeners to the canvas
+        canvas.addEventListener('mousedown', function(e)
+        {
+            painting = true;
+            draw();
+        });
+
+        
+        canvas.addEventListener('mousemove', function(e)
+        {
+            mouse.x = e.x;
+            mouse.y = e.y;
+
+            draw();
+        });
 
         
         // Call draw funtion
@@ -75,7 +118,7 @@
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         });
-
+ 
         
         function draw()
         {
@@ -86,7 +129,7 @@
         ctx.lineWidth = 2;
         ctx.arc(mouse.x, mouse.y, 30, 0, Math.PI * 2);
         ctx.fill();
-        ctx.stroke();
+        // ctx.stroke();
         }
     </script>
 </body>
