@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1>Arrays Review</h1>
+    <h2>Index, Push, Pop, and Shift</h2>
+    <h2>ForEach, Console.log</h2>
+
     <script>
         // Arrays Review
 
@@ -42,6 +45,23 @@
         // Remove the frist item from array using shift
         shoppingList.shift();
 
+        console.log(shoppingList);
+
+        // List array length (total values)
+        console.log(shoppingList.length);
+
+        // Cycle through array using forEach method
+
+        shoppingList.forEach(   function(food, index)
+        {
+            console.log(index + '  ' + food);
+        }   );
+
+        // Cycle through array using forEach method
+        shoppingList.forEach(   function(f, index)
+        {
+            window.alert(f + ' is index ' + index);
+        });
     </script>
 </body>
 </html>
